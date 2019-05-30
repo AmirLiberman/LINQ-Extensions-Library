@@ -119,7 +119,7 @@ namespace LinqExtensions.Sort
               if (start == -1)
                 start = current;
             }
-            else              // Diff
+            else              // Different
             {
               if (start != -1)
               {

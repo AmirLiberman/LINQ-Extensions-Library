@@ -102,7 +102,7 @@ namespace LinqExtensions.Sequence
 
     #endregion
 
-    #region Remove Nans and Nulls
+    #region Remove NaNs and Nulls
 
     /// <summary>
     /// Removes all Nan elements from a sequence of double-precision floating-point numbers.

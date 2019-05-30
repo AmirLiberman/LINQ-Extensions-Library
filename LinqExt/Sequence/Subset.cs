@@ -427,27 +427,27 @@ namespace LinqExtensions.Sequence
     #region Plain
 
     /// <summary>
-    /// Takes the specified number of items before and after the the specified item.
+    /// Takes the specified number of items before and after the specified item.
     /// </summary>
     /// <typeparam name="TSource">The type of the elements of source.</typeparam>
     /// <param name="source">The sequence to return elements from.</param>
     /// <param name="item">The element where operation occurs.</param>
     /// <param name="count">number of items to take (total items will be up to count*2 + 1).</param>
-    /// <returns>The specified number of items before and after the the specified item.</returns>
+    /// <returns>The specified number of items before and after the specified item.</returns>
     public static IEnumerable<TSource> TakeAround<TSource>(this IEnumerable<TSource> source, TSource item, int count)
     {
       return TakeAround(source, item, count, count);
     }
 
     /// <summary>
-    /// Takes the specified number of items before and after the the specified item.
+    /// Takes the specified number of items before and after the specified item.
     /// </summary>
     /// <typeparam name="TSource">The type of the elements of source.</typeparam>
     /// <param name="source">The sequence to return elements from.</param>
     /// <param name="item">The element where operation occurs.</param>
     /// <param name="before">number of items to take before the instance of item.</param>
     /// <param name="after">number of items to take after the instance of item.</param>
-    /// <returns>The specified number of items before and after the the specified item.</returns>
+    /// <returns>The specified number of items before and after the specified item.</returns>
     public static IEnumerable<TSource> TakeAround<TSource>(this IEnumerable<TSource> source, TSource item, int before, int after)
     {
       TSource[] sourceArr = source.ToArray();
@@ -463,21 +463,21 @@ namespace LinqExtensions.Sequence
     #region Custom Compare
 
     /// <summary>
-    /// Takes the specified number of items before and after the the specified item using a custom comparer.
+    /// Takes the specified number of items before and after the specified item using a custom comparer.
     /// </summary>
     /// <typeparam name="TSource">The type of the elements of source.</typeparam>
     /// <param name="source">The sequence to return elements from.</param>
     /// <param name="item">The element where operation occurs.</param>
     /// <param name="count">number of items to take (total items will be up to count*2 + 1).</param>
     /// <param name="comparer">A IEqualityComparer comparer to use when evaluating items</param>
-    /// <returns>The specified number of items before and after the the specified item.</returns>
+    /// <returns>The specified number of items before and after the specified item.</returns>
     public static IEnumerable<TSource> TakeAround<TSource>(this IEnumerable<TSource> source, TSource item, int count, IEqualityComparer<TSource> comparer)
     {
       return TakeAround(source, item, count, count, comparer);
     }
 
     /// <summary>
-    /// Takes the specified number of items before and after the the specified item using a custom comparer.
+    /// Takes the specified number of items before and after the specified item using a custom comparer.
     /// </summary>
     /// <typeparam name="TSource">The type of the elements of source.</typeparam>
     /// <param name="source">The sequence to return elements from.</param>
@@ -485,7 +485,7 @@ namespace LinqExtensions.Sequence
     /// <param name="before">number of items to take before the instance of item.</param>
     /// <param name="after">number of items to take after the instance of item.</param>
     /// <param name="comparer">A IEqualityComparer comparer to use when evaluating items</param>
-    /// <returns>The specified number of items before and after the the specified item.</returns>
+    /// <returns>The specified number of items before and after the specified item.</returns>
     public static IEnumerable<TSource> TakeAround<TSource>(this IEnumerable<TSource> source, TSource item, int before, int after, IEqualityComparer<TSource> comparer)
     {
       TSource[] sourceArr = source.ToArray();
