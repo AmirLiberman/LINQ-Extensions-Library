@@ -113,7 +113,7 @@ namespace LinqExtensions.Operators
     /// <param name="sources">A set of sequences to with elements to use as inputs for the supplied function.</param>
     /// <param name="func">The function to use to on the source elements.</param>
     /// <returns>A sequence of results returned by the custom function.</returns>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
+    //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
     public static IEnumerable<TResult> ApplyFunction<TSource, TResult>(this IEnumerable<IEnumerable<TSource>> sources, Func<TSource, TSource, TResult> func)
     {
       Utilities.ValidateEnumeratedParamIsNotNull(sources, 2, nameof(sources));

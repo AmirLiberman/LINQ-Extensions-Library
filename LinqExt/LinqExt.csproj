@@ -4,6 +4,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>LinqExtensions</AssemblyName>
     <RootNamespace>LinqExtensions</RootNamespace>
+    <Description>Linq Extensions Library</Description>
+    <Company>Amir Liberman</Company>
+    <Product>Linq Extensions Library</Product>
+    <AssemblyVersion>1.6.1.0</AssemblyVersion>
+    <Copyright>Copyright © Amir Liberman 2010-2019</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

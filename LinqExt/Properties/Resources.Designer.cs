@@ -61,7 +61,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to {0} cannot be applied to &apos;{1}&apos;..
         /// </summary>
         internal static string exceptionApplyAttempt {
             get {
@@ -70,7 +70,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Cannot handle Match Type &apos;{0}&apos;..
         /// </summary>
         internal static string exceptionMatchType {
             get {
@@ -79,7 +79,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The property or field {0} cannot be found..
         /// </summary>
         internal static string exceptionMissingFieldOrProperty {
             get {
@@ -88,7 +88,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Two dimensional arrays cannot be flipped on the &apos;{0}&apos; axis..
         /// </summary>
         internal static string excption2DFlip {
             get {
@@ -97,7 +97,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Three dimensional arrays cannot be flipped on the &apos;{0}&apos; axis..
         /// </summary>
         internal static string excption3DFlip {
             get {
@@ -106,7 +106,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Three dimensional arrays cannot be rotated on the &apos;{0}&apos; axis..
         /// </summary>
         internal static string excption3DRotation {
             get {
@@ -115,7 +115,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Four dimensional arrays cannot be flipped on the &apos;{0}&apos; axis..
         /// </summary>
         internal static string excption4DFlip {
             get {
@@ -124,7 +124,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Four dimensional arrays cannot be rotated on the &apos;{0}&apos; axis..
         /// </summary>
         internal static string excption4DRotation {
             get {
@@ -133,7 +133,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Error accessing dynamic property: &apos;{0}&apos;..
         /// </summary>
         internal static string excptionDynamicPropertyAccess {
             get {
@@ -142,7 +142,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to &apos;{0}&apos; is not a valid rotation angle. Angle value must be divisible by 90..
         /// </summary>
         internal static string excptionInvalidAngle {
             get {
@@ -151,7 +151,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Axis {0} is not valid for this operation..
         /// </summary>
         internal static string excptionInvalidAxis {
             get {
@@ -160,7 +160,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Generate&lt;T&gt; cannot be invoked using &apos;{0}&apos; type, only numeric values are valid..
         /// </summary>
         internal static string excptionInvalidGenerateGenericType {
             get {
@@ -169,7 +169,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to sources must have exactly {0} elements..
         /// </summary>
         internal static string excptionInvalidItemsCount {
             get {
@@ -178,7 +178,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to This override of RemoveNoise cannot be used with filter type &apos;AbsoluteValue&apos;..
         /// </summary>
         internal static string excptionInvalidNoiseFilterType {
             get {
@@ -187,7 +187,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to When calling RemoveNoise with &apos;AbsoluteValue&apos; filter type option upperLimit cannot be equal to lowerLimit..
         /// </summary>
         internal static string excptionInvalidNoiseFilterTypeLimits {
             get {
@@ -196,7 +196,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Range&lt;T&gt; cannot be invoked using &apos;{0}&apos; type, only numeric values are valid..
         /// </summary>
         internal static string excptionInvalidRangeGenericType {
             get {
@@ -205,7 +205,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Skip must be one or larger..
         /// </summary>
         internal static string excptionInvalidSkipCount {
             get {
@@ -214,7 +214,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Take must be one or larger..
         /// </summary>
         internal static string excptionInvalidTakeCount {
             get {
@@ -223,7 +223,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to parameter {0} is out of range max value is &apos;{1}&apos;.
         /// </summary>
         internal static string excptionParamMaxRange {
             get {
@@ -232,7 +232,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to parameter {0} is out of range min value is &apos;{1}&apos;.
         /// </summary>
         internal static string excptionParamMinRange {
             get {
@@ -241,7 +241,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Rounding digits must be between 0 and {0}, inclusive..
         /// </summary>
         internal static string excptionRoundingDigits {
             get {
@@ -250,7 +250,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Sequence must have 1 or more elements..
         /// </summary>
         internal static string excptionSequenceMinOne {
             get {
@@ -259,7 +259,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Sequence must have two or more elements..
         /// </summary>
         internal static string excptionSequenceMinTwo {
             get {
@@ -268,7 +268,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Sequence must have two or more non null elements..
         /// </summary>
         internal static string excptionSequenceMinTwoNotNull {
             get {
@@ -277,7 +277,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Element {0} of sources cannot be null..
         /// </summary>
         internal static string excptionSourceSequenceIsNull {
             get {
@@ -286,7 +286,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Step time cannot be zero..
         /// </summary>
         internal static string excptionStepDuration {
             get {
@@ -295,7 +295,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Sequence must have more items than the blockSize..
         /// </summary>
         internal static string excptionValueMinBlockSize {
             get {
@@ -304,7 +304,7 @@ namespace LinqExtensions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Value must be larger than or equal to two..
         /// </summary>
         internal static string excptionValueMinTwo {
             get {

@@ -20,7 +20,6 @@ namespace LinqExtensions
                                                                                 "Double",
                                                                                 "Single"};
 
-    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal static void ValidateIsNumeric<T>(string caller)
     {
       Type tt = typeof(T);

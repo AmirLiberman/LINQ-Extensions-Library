@@ -17,7 +17,7 @@ namespace LinqExtensions
 
     internal static ArgumentOutOfRangeException MatchType(object matchType)
     {
-      return new ArgumentOutOfRangeException("matchType", string.Format(Resources.exceptionMatchType, matchType));
+      return new ArgumentOutOfRangeException(nameof(matchType), string.Format(Resources.exceptionMatchType, matchType));
     }
 
     //internal static ArgumentException MissingFieldOrProperty(string safeRuntimeName)
@@ -27,17 +27,17 @@ namespace LinqExtensions
 
     internal static ArgumentException Invalid2DFlip(object axis)
     {
-      return new ArgumentException(string.Format(Resources.excption2DFlip, axis), "axis");
+      return new ArgumentException(string.Format(Resources.excption2DFlip, axis), nameof(axis));
     }
 
     internal static ArgumentException Invalid3DFlip(object axis)
     {
-      return new ArgumentException(string.Format(Resources.excption3DFlip, axis), "axis");
+      return new ArgumentException(string.Format(Resources.excption3DFlip, axis), nameof(axis));
     }
 
     internal static ArgumentException Invalid4DFlip(object axis)
     {
-      return new ArgumentException(string.Format(Resources.excption4DFlip, axis), "axis");
+      return new ArgumentException(string.Format(Resources.excption4DFlip, axis), nameof(axis));
     }
 
     //internal static ArgumentException Rotate3D(object axis)

@@ -7,6 +7,7 @@ namespace LinqExtensions.Operators
   /// </summary>
   public static class Gates
   {
+    public static int x = 555;
     /// <summary>
     /// Applies a Logical 'NOT' over a sequence.
     /// </summary>
