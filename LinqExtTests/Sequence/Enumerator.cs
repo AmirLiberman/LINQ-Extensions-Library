@@ -264,7 +264,7 @@ namespace LinqExtTests.Sequence
 
       //------------------------------//
 
-      expected = new int[0];
+      expected = System.Array.Empty<int>();
       actual = Enumerator.Repeat((IEnumerable<int>)null, 1);
       Assert.IsTrue(expected.SequenceEqual(actual));
     }
@@ -323,10 +323,10 @@ namespace LinqExtTests.Sequence
       IEnumerable<string> s1 = new string[] { "A", "B", "C", "D", "E" };
       IEnumerable<int> s2 = new int[] { 1, 2, 3, 4, 5 };
       IEnumerable<string> expected = new string[] { "A1A", "B2B", "C3C", "D4D", "E5E" };
-      Func<string, int, string> combine = (S, I) => string.Format("{0}{1}{0}", S, I);
+      string combine(string S, int I) => string.Format("{0}{1}{0}", S, I);
 
       IEnumerable<string> actual;
-      actual = s1.Combine<string, string, int>(s2, combine);
+      actual = s1.Combine(s2, combine);
       Assert.IsTrue(actual.SequenceEqual(expected));
     }
 
