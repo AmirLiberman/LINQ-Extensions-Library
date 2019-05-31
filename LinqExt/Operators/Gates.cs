@@ -6,8 +6,7 @@ namespace LinqExtensions.Operators
   /// Provides logical AND, OR , XOR, NOT and truth table processing methods.
   /// </summary>
   public static class Gates
-  {
-    public static int x = 555;
+  {    
     /// <summary>
     /// Applies a Logical 'NOT' over a sequence.
     /// </summary>
