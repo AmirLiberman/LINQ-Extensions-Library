@@ -11,7 +11,7 @@ namespace LinqExtTests.Sort
   public class SortTests
   {
 
-    private DataItem[] GetTestData(int elements)
+    private static DataItem[] GetTestData(int elements)
     {
       return Enumerator.Generate(elements, X => new DataItem(X)).ToArray();
     }

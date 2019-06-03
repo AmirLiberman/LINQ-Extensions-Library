@@ -19,7 +19,7 @@ namespace LinqExtensions.Sort
     /// </summary>
     [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
     protected ComposableSortEnumerable()
-    {    }
+    { }
 
     public void AppendSorter<TKey>(Func<TElement, TKey> keySelector, SortType sortType, IComparer<TKey> comparer, bool descending)
     {
