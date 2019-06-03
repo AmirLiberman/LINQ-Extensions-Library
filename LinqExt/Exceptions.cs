@@ -147,7 +147,7 @@ namespace LinqExtensions
 
     //internal static ArgumentOutOfRangeException StepDuration(string parameterName)
     //{
-    
+    //The value '{0}' is not valid for the parameter '{1}'.
     //}
 
     internal static ArgumentException ValueMinBlockSize(string parameterName)

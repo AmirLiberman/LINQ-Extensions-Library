@@ -1,12 +1,15 @@
-﻿using System;
+﻿using LinqExtensions.Array;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using LinqExtensions.Array;
 
 namespace LinqExtensions
 {
   internal static class Utilities
   {
+    internal const int HASH_PRIME_1 = 7213;
+    internal const int HASH_PRIME_2 = 7243;
+
     // Static hash set that holds primitive numeric types for fast lookup.   
     private static readonly HashSet<string> numericTypes = new HashSet<string> {"Byte",
                                                                                 "Int16",
@@ -133,7 +136,7 @@ namespace LinqExtensions
       if (timespan == TimeSpan.Zero)
         throw Exceptions.DurationIsZero(parameterName);
     }
-  
+
     internal static void Swap<T>(ref T a, ref T b)
     {
       T temp = b;
@@ -141,6 +144,19 @@ namespace LinqExtensions
       a = temp;
     }
 
+    internal static DateTimeOffset AlignDate(this DateTimeOffset dateTime, TimeSpan interval)
+    {
+      long ticksToShift;
+
+      if (interval == TimeSpan.Zero)
+        return dateTime;
+
+      ticksToShift = dateTime.Subtract(dateTime.Date).Ticks % interval.Ticks;
+      if (ticksToShift > interval.Ticks / 2)
+        return dateTime.AddTicks(interval.Ticks - ticksToShift);
+      else
+        return dateTime.AddTicks(-ticksToShift);
+    }
   }
 }
 

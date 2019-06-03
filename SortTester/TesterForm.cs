@@ -312,7 +312,7 @@ namespace SortTester
     private static IEnumerable<TestDataElement> PreSortTestData(IEnumerable<TestDataElement> testData, TestInfo testInfo)
     {
       TestInfo temp = testInfo;
-      if (testInfo.SourceOrder == -1)
+      if (testInfo.SourceOrder == -1) //Reverse the order.
       {
         if (temp.Sort1Order == SortOrder.Ascending)
           temp.Sort1Order = SortOrder.Descending;
