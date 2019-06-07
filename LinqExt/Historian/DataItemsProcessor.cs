@@ -82,7 +82,7 @@ namespace LinqExtensions.Historian
 
             if (currentSnapshot.IsGood)
             {
-            repeatCalc:
+              repeatCalc:
               long dur = (currentSnapshot.UtcTicks - archive.UtcTicks) / TimeSpan.TicksPerSecond;
               if (dur == 0)
                 continue;
@@ -124,7 +124,12 @@ namespace LinqExtensions.Historian
       return Interpolate(source, start, end, interval, false);
     }
 
-    public static IEnumerable<DataItem> Interpolate(this IEnumerable<DataItem> source, DateTimeOffset start, DateTimeOffset end, TimeSpan interval, bool autoAlignDates)
+    public static IEnumerable<DataItem> Interpolate(this IEnumerable<DataItem> source, DateTimeOffset start, DateTimeOffset end, TimeSpan interval, bool stepInterpolation)
+    {
+      return Interpolate(source, start, end, interval, false, false);
+    }
+
+    public static IEnumerable<DataItem> Interpolate(this IEnumerable<DataItem> source, DateTimeOffset start, DateTimeOffset end, TimeSpan interval, bool stepInterpolation, bool autoAlignDates)
     {
       if (autoAlignDates)
       {
@@ -149,7 +154,7 @@ namespace LinqExtensions.Historian
       {
         while (data[dataIndex].UtcTicks <= interpolatedTimestamp && data[dataIndex + 1].UtcTicks >= interpolatedTimestamp)
         {
-          yield return DataItem.Interpolate(new DateTimeOffset(interpolatedTimestamp, TimeSpan.Zero), data[dataIndex], data[dataIndex + 1], false);
+          yield return DataItem.Interpolate(new DateTimeOffset(interpolatedTimestamp, TimeSpan.Zero), data[dataIndex], data[dataIndex + 1], stepInterpolation);
           interpolatedIndex++;
           if (interpolatedIndex == interploatedItems)
             yield break;
