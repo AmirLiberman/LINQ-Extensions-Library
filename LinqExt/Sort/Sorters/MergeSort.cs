@@ -2,7 +2,7 @@
 
 namespace LinqExtensions.Sort.Sorters
 {
-  internal class MergeSort<TKey> : Sort<TKey>, ISort<TKey>
+  internal class MergeSort<TKey> : SortBase<TKey>, ISort<TKey>
   {
     internal MergeSort(MapItem<TKey>[] map, IComparer<TKey> comparer, bool descending)
       : base(map, comparer, descending) { }

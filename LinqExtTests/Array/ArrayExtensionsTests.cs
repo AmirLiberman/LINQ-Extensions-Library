@@ -4,8 +4,6 @@ using LinqExtensions.Array;
 using LinqExtensions.Sequence;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-#pragma warning disable CA1825 // Avoid zero-length array allocations.
-
 namespace LinqExtTests.Array
 {
   [TestClass()]
@@ -605,14 +603,14 @@ namespace LinqExtTests.Array
     {
       double[,] src = Enumerator.Generate<double>(0, 1, 12).ToArray(3, 4);
 
-      Assert.IsTrue(src.Flip(FlipAxis.None).ArrayEquals(src));
-      Assert.IsTrue(src.Flip(FlipAxis.FlipX).ArrayEquals(ArrayReader.GetDoubleArray("Flip2D-1.X")));
-      Assert.IsTrue(src.Flip(FlipAxis.FlipY).ArrayEquals(ArrayReader.GetDoubleArray("Flip2D-1.Y")));
-      Assert.IsTrue(src.Flip(FlipAxis.FlipXY).ArrayEquals(ArrayReader.GetDoubleArray("Flip2D-1.XY")));
+      Assert.IsTrue(src.Flip(FlipAxes.None).ArrayEquals(src));
+      Assert.IsTrue(src.Flip(FlipAxes.FlipX).ArrayEquals(ArrayReader.GetDoubleArray("Flip2D-1.X")));
+      Assert.IsTrue(src.Flip(FlipAxes.FlipY).ArrayEquals(ArrayReader.GetDoubleArray("Flip2D-1.Y")));
+      Assert.IsTrue(src.Flip(FlipAxes.FlipXY).ArrayEquals(ArrayReader.GetDoubleArray("Flip2D-1.XY")));
 
       try
       {
-        src.Flip(FlipAxis.FlipZ);
+        src.Flip(FlipAxes.FlipZ);
         Assert.Fail();
       }
       catch (System.ArgumentException ex)
@@ -630,20 +628,20 @@ namespace LinqExtTests.Array
     {
       double[, ,] src = Enumerator.Generate<double>(0, 1, 24).ToArray(2, 3, 4);
 
-      Assert.IsTrue(src.Flip(FlipAxis.None).ArrayEquals(src));
-      Assert.IsTrue(src.Flip(FlipAxis.FlipX).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.X")));
-      Assert.IsTrue(src.Flip(FlipAxis.FlipY).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.Y")));
-      Assert.IsTrue(src.Flip(FlipAxis.FlipZ).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.Z")));
+      Assert.IsTrue(src.Flip(FlipAxes.None).ArrayEquals(src));
+      Assert.IsTrue(src.Flip(FlipAxes.FlipX).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.X")));
+      Assert.IsTrue(src.Flip(FlipAxes.FlipY).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.Y")));
+      Assert.IsTrue(src.Flip(FlipAxes.FlipZ).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.Z")));
 
-      Assert.IsTrue(src.Flip(FlipAxis.FlipXY).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.XY")));
-      Assert.IsTrue(src.Flip(FlipAxis.FlipXZ).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.XZ")));
-      Assert.IsTrue(src.Flip(FlipAxis.FlipYZ).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.YZ")));
+      Assert.IsTrue(src.Flip(FlipAxes.FlipXY).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.XY")));
+      Assert.IsTrue(src.Flip(FlipAxes.FlipXZ).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.XZ")));
+      Assert.IsTrue(src.Flip(FlipAxes.FlipYZ).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.YZ")));
 
-      Assert.IsTrue(src.Flip(FlipAxis.FlipXYZ).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.XYZ")));
+      Assert.IsTrue(src.Flip(FlipAxes.FlipXYZ).ArrayEquals(ArrayReader.GetDoubleArray("Flip3D-1.XYZ")));
 
       try
       {
-        src.Flip((FlipAxis)63);
+        src.Flip((FlipAxes)63);
         Assert.Fail();
       }
       catch (System.ArgumentException ex)

@@ -2,7 +2,7 @@
 
 namespace LinqExtensions.Sort.Sorters
 {
-  internal class BubbleSort<TKey> : Sort<TKey>, ISort<TKey>
+  internal class BubbleSort<TKey> : SortBase<TKey>, ISort<TKey>
   {
     internal BubbleSort(MapItem<TKey>[] map, IComparer<TKey> comparer, bool descending)
       : base(map, comparer, descending) { }

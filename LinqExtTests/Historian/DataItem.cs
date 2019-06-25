@@ -44,13 +44,13 @@ namespace LinqExtTests.Historian
 
       a = new DataItem(5.0, new DateTimeOffset(2010, 1, 1, 0, 0, 0, TimeSpan.Zero));
       b = new DataItem(double.NaN, new DateTimeOffset(2010, 1, 1, 1, 0, 0, TimeSpan.Zero));
-      expected = new DataItem(5.0, new DateTimeOffset(2010, 1, 1, 0, 30, 0, TimeSpan.Zero));
+      expected = new DataItem(5.0, new DateTimeOffset(2010, 1, 1, 0, 30, 0, TimeSpan.Zero), DataItemStatus.Empty);
       actual = DataItem.Interpolate(new DateTimeOffset(2010, 1, 1, 0, 30, 0, TimeSpan.Zero), a, b, false);
       Assert.AreEqual(expected, actual);
 
-      a = new DataItem(5.0, new DateTimeOffset(2010, 1, 1, 0, 0, 0, TimeSpan.Zero));
-      b = new DataItem(double.NaN, new DateTimeOffset(2010, 1, 1, 1, 0, 0, TimeSpan.Zero));
-      expected = new DataItem(5.0, new DateTimeOffset(2010, 1, 1, 0, 30, 0, TimeSpan.Zero));
+      a = new DataItem(double.NaN, new DateTimeOffset(2010, 1, 1, 0, 0, 0, TimeSpan.Zero));
+      b = new DataItem(5.0, new DateTimeOffset(2010, 1, 1, 1, 0, 0, TimeSpan.Zero));
+      expected = new DataItem(double.NaN, new DateTimeOffset(2010, 1, 1, 0, 30, 0, TimeSpan.Zero), DataItemStatus.Empty);
       actual = DataItem.Interpolate(new DateTimeOffset(2010, 1, 1, 0, 30, 0, TimeSpan.Zero), a, b, false);
       Assert.AreEqual(expected, actual);
     }

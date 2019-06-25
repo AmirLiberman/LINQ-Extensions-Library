@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+[assembly: System.Resources.NeutralResourcesLanguage("en-US")]
+
 namespace LinqExtensions
 {
   internal static class Utilities
@@ -105,14 +107,14 @@ namespace LinqExtensions
         throw Exceptions.SequenceIsEmpty(parameterName);
     }
 
-    internal static void Validate2DFlip(FlipAxis axis)
+    internal static void Validate2DFlip(FlipAxes axis)
     {
       int axisValue = (int)axis;
       if (axisValue < 0 || axisValue > 3)
         throw Exceptions.Invalid2DFlip(axis);
     }
 
-    internal static void Validate3DFlip(FlipAxis axis)
+    internal static void Validate3DFlip(FlipAxes axis)
     {
       int axisValue = (int)axis;
       if (axisValue < 0 || axisValue > 7)

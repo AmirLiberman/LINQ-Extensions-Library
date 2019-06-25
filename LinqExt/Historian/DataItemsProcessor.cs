@@ -13,6 +13,8 @@ namespace LinqExtensions.Historian
 
     public static IEnumerable<DataItem> ProcessExceptions(this IEnumerable<DataItem> source, double exceptionMax)
     {
+      Utilities.ValidateIsNotNull(source, nameof(source));
+
       DataItem archive;
       DataItem lastSnapshot;
       DataItem currentSnapshot;
@@ -61,6 +63,8 @@ namespace LinqExtensions.Historian
 
     public static IEnumerable<DataItem> ProcessCompression(this IEnumerable<DataItem> source, double compressionMax)
     {
+      Utilities.ValidateIsNotNull(source, nameof(source));
+
       DataItem archive;
       DataItem lastSnapshot;
       DataItem currentSnapshot;
@@ -126,11 +130,13 @@ namespace LinqExtensions.Historian
 
     public static IEnumerable<DataItem> Interpolate(this IEnumerable<DataItem> source, DateTimeOffset start, DateTimeOffset end, TimeSpan interval, bool stepInterpolation)
     {
-      return Interpolate(source, start, end, interval, false, false);
+      return Interpolate(source, start, end, interval, stepInterpolation, false);
     }
 
     public static IEnumerable<DataItem> Interpolate(this IEnumerable<DataItem> source, DateTimeOffset start, DateTimeOffset end, TimeSpan interval, bool stepInterpolation, bool autoAlignDates)
     {
+      Utilities.ValidateIsNotNull(source, nameof(source));
+
       if (autoAlignDates)
       {
         start = start.AlignDate(interval);

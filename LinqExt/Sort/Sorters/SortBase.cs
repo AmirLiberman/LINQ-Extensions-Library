@@ -7,7 +7,7 @@ namespace LinqExtensions.Sort.Sorters
   /// Documentation
   /// </summary>
   /// <typeparam name="TKey"></typeparam>
-  public abstract class Sort<TKey>
+  public abstract class SortBase<TKey>
   {
     internal MapItem<TKey>[] Map;
     internal bool Descending;
@@ -19,7 +19,7 @@ namespace LinqExtensions.Sort.Sorters
     /// <param name="map"></param>
     /// <param name="comparer"></param>
     /// <param name="descending"></param>
-    internal Sort(MapItem<TKey>[] map, IComparer<TKey> comparer, bool descending)
+    internal SortBase(MapItem<TKey>[] map, IComparer<TKey> comparer, bool descending)
     {
       Descending = descending;
       Comparer = comparer;

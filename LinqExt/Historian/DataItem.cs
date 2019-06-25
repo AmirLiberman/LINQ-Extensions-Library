@@ -12,7 +12,9 @@ namespace LinqExtensions.Historian
     private const int CONFIDENCE_BIT_MASK = 0x000F_0000;
 
     #region Declarations
+
 #pragma warning disable IDE0032 // Use auto property
+
     private readonly double _originalValue;               //        8            
 
     private readonly DataItemStatus _status;              //        4 
@@ -20,6 +22,7 @@ namespace LinqExtensions.Historian
     private long _utcTimestampTicks;                      //        8
 
 #pragma warning restore IDE0032 // Use auto property
+
     #endregion
 
     #region Constructors
@@ -317,11 +320,11 @@ namespace LinqExtensions.Historian
         return new DataItem(item1.OriginalValue, timestamp, item1.Status, item1.Code, item1.Confidence);
 
       //If at this point, timestamp is in between the items timestamps
-      if (!item1.IsGood)
-        return Combine(item2.OriginalValue, timestamp, item1, item2);
+      if (!item1.IsGood || !item2.IsGood)
+        return Combine(item1.OriginalValue, timestamp, item1, item2);
 
-      if (!item2.IsGood)
-        return Combine(item1.OriginalValue, timestamp, item2, item2);
+      //if (!item2.IsGood)
+      //  return Combine(item1.OriginalValue, timestamp, item2, item2);
 
       //Timestamp is in between the items timestamps, both items are good and linear interpolation is needed (stepInterpolation is false)
       //Preform the interpolation:

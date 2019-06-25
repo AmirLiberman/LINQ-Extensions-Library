@@ -7,7 +7,7 @@ namespace LinqExtensions.Sort
   /// Documentation
   /// </summary>
   /// <typeparam name="TElement"></typeparam>
-  public interface IComposableSortEnumerable<out TElement> : IEnumerable<TElement>
+  public interface IComposableSortCollection<out TElement> : IEnumerable<TElement>
   {
     /// <summary>
     /// Documentation

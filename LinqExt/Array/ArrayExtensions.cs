@@ -1,4 +1,6 @@
-﻿using System;
+﻿#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -1874,7 +1876,7 @@ namespace LinqExtensions.Array
     /// <returns>A flipped copy of the source array.</returns> 
     /// <exception cref="System.ArgumentNullException">source is null.</exception>
     /// <exception cref="System.ArgumentException">Invalid axis.</exception>    
-    public static T[,] Flip<T>(this T[,] source, FlipAxis axis)
+    public static T[,] Flip<T>(this T[,] source, FlipAxes axis)
     {
       Utilities.ValidateIsNotNull(source, nameof(source));
       Utilities.Validate2DFlip(axis);      
@@ -1883,14 +1885,14 @@ namespace LinqExtensions.Array
 
       switch (axis)
       {
-        case FlipAxis.FlipX:
+        case FlipAxes.FlipX:
           dest = source.Slice().Select(X => X.Flip()).Fuse();
           break;
-        case FlipAxis.FlipY:
-          dest = source.Rotate(90).Flip(FlipAxis.FlipX).Rotate(-90);
+        case FlipAxes.FlipY:
+          dest = source.Rotate(90).Flip(FlipAxes.FlipX).Rotate(-90);
           break;
-        case FlipAxis.FlipXY:
-          dest = source.Flip(FlipAxis.FlipX).Flip(FlipAxis.FlipY);
+        case FlipAxes.FlipXY:
+          dest = source.Flip(FlipAxes.FlipX).Flip(FlipAxes.FlipY);
           break;
         default:
           dest = (T[,])System.Array.CreateInstance(typeof(T), source.GetDimensions());
@@ -1909,7 +1911,7 @@ namespace LinqExtensions.Array
     /// <returns>A flipped copy of the source array.</returns>    
     /// <exception cref="System.ArgumentNullException">source is null.</exception>
     /// <exception cref="System.ArgumentException">Invalid axis.</exception>    
-    public static T[,,] Flip<T>(this T[,,] source, FlipAxis axis)
+    public static T[,,] Flip<T>(this T[,,] source, FlipAxes axis)
     {
       Utilities.ValidateIsNotNull(source, nameof(source));
       Utilities.Validate3DFlip(axis);      
@@ -1918,26 +1920,26 @@ namespace LinqExtensions.Array
 
       switch (axis)
       {
-        case FlipAxis.FlipX:
+        case FlipAxes.FlipX:
           dest = source.Slice().Select(X => X.Slice().Select(X1 => X1.Flip()).Fuse()).Fuse();
           break;
-        case FlipAxis.FlipY:
-          dest = source.Rotate(RotateAxis.RotateZ, 90).Flip(FlipAxis.FlipX).Rotate(RotateAxis.RotateZ, -90);
+        case FlipAxes.FlipY:
+          dest = source.Rotate(RotateAxis.RotateZ, 90).Flip(FlipAxes.FlipX).Rotate(RotateAxis.RotateZ, -90);
           break;
-        case FlipAxis.FlipXY:
-          dest = source.Flip(FlipAxis.FlipX).Flip(FlipAxis.FlipY);
+        case FlipAxes.FlipXY:
+          dest = source.Flip(FlipAxes.FlipX).Flip(FlipAxes.FlipY);
           break;
-        case FlipAxis.FlipZ:
-          dest = source.Rotate(RotateAxis.RotateY, 90).Flip(FlipAxis.FlipX).Rotate(RotateAxis.RotateY, -90);
+        case FlipAxes.FlipZ:
+          dest = source.Rotate(RotateAxis.RotateY, 90).Flip(FlipAxes.FlipX).Rotate(RotateAxis.RotateY, -90);
           break;
-        case FlipAxis.FlipXZ:
-          dest = source.Flip(FlipAxis.FlipX).Flip(FlipAxis.FlipZ);
+        case FlipAxes.FlipXZ:
+          dest = source.Flip(FlipAxes.FlipX).Flip(FlipAxes.FlipZ);
           break;
-        case FlipAxis.FlipYZ:
-          dest = source.Flip(FlipAxis.FlipY).Flip(FlipAxis.FlipZ);
+        case FlipAxes.FlipYZ:
+          dest = source.Flip(FlipAxes.FlipY).Flip(FlipAxes.FlipZ);
           break;
-        case FlipAxis.FlipXYZ:
-          dest = source.Flip(FlipAxis.FlipX).Flip(FlipAxis.FlipY).Flip(FlipAxis.FlipZ);
+        case FlipAxes.FlipXYZ:
+          dest = source.Flip(FlipAxes.FlipX).Flip(FlipAxes.FlipY).Flip(FlipAxes.FlipZ);
           break;
         default:
           dest = (T[,,])System.Array.CreateInstance(typeof(T), source.GetDimensions());

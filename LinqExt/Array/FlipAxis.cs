@@ -6,7 +6,7 @@ namespace LinqExtensions.Array
   /// Describes the possible axis used to flip a multidimensional array.
   /// </summary>
   [Flags]
-  public enum FlipAxis
+  public enum FlipAxes
   {
     /// <summary>
     /// No Flip Action.

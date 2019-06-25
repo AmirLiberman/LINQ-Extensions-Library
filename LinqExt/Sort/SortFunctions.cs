@@ -17,9 +17,9 @@ namespace LinqExtensions.Sort
     /// <param name="keySelector"></param>
     /// <param name="sortType"></param>
     /// <returns></returns>
-    public static IComposableSortEnumerable<TSource> OrderBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, SortType sortType)
+    public static IComposableSortCollection<TSource> OrderBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, SortType sortType)
     {
-      return new ComposableSortEnumerable<TSource, TKey>(source, keySelector, sortType, null, false);
+      return new ComposableSortCollection<TSource, TKey>(source, keySelector, sortType, null, false);
     }
 
     /// <summary>
@@ -32,9 +32,9 @@ namespace LinqExtensions.Sort
     /// <param name="sortType"></param>
     /// <param name="comparer"></param>
     /// <returns></returns>
-    public static IComposableSortEnumerable<TSource> OrderBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, SortType sortType, IComparer<TKey> comparer)
+    public static IComposableSortCollection<TSource> OrderBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, SortType sortType, IComparer<TKey> comparer)
     {
-      return new ComposableSortEnumerable<TSource, TKey>(source, keySelector, sortType, comparer, false);
+      return new ComposableSortCollection<TSource, TKey>(source, keySelector, sortType, comparer, false);
     }
 
     /// <summary>
@@ -46,9 +46,9 @@ namespace LinqExtensions.Sort
     /// <param name="keySelector"></param>
     /// <param name="sortType"></param>
     /// <returns></returns>
-    public static IComposableSortEnumerable<TSource> OrderByDescending<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, SortType sortType)
+    public static IComposableSortCollection<TSource> OrderByDescending<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, SortType sortType)
     {
-      return new ComposableSortEnumerable<TSource, TKey>(source, keySelector, sortType, null, true);
+      return new ComposableSortCollection<TSource, TKey>(source, keySelector, sortType, null, true);
     }
 
     /// <summary>
@@ -61,9 +61,9 @@ namespace LinqExtensions.Sort
     /// <param name="sortType"></param>
     /// <param name="comparer"></param>
     /// <returns></returns>
-    public static IComposableSortEnumerable<TSource> OrderByDescending<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, SortType sortType, IComparer<TKey> comparer)
+    public static IComposableSortCollection<TSource> OrderByDescending<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector, SortType sortType, IComparer<TKey> comparer)
     {
-      return new ComposableSortEnumerable<TSource, TKey>(source, keySelector, sortType, comparer, true);
+      return new ComposableSortCollection<TSource, TKey>(source, keySelector, sortType, comparer, true);
     }
 
     /// <summary>
@@ -75,7 +75,7 @@ namespace LinqExtensions.Sort
     /// <param name="keySelector"></param>
     /// <param name="sortType"></param>
     /// <returns></returns>
-    public static IComposableSortEnumerable<TSource> ThenBy<TSource, TKey>(this IComposableSortEnumerable<TSource> source, Func<TSource, TKey> keySelector, SortType sortType)
+    public static IComposableSortCollection<TSource> ThenBy<TSource, TKey>(this IComposableSortCollection<TSource> source, Func<TSource, TKey> keySelector, SortType sortType)
     {
       Utilities.ValidateIsNotNull(source, nameof(source));
 
@@ -93,7 +93,7 @@ namespace LinqExtensions.Sort
     /// <param name="sortType"></param>
     /// <param name="comparer"></param>
     /// <returns></returns>
-    public static IComposableSortEnumerable<TSource> ThenBy<TSource, TKey>(this IComposableSortEnumerable<TSource> source, Func<TSource, TKey> keySelector, SortType sortType, IComparer<TKey> comparer)
+    public static IComposableSortCollection<TSource> ThenBy<TSource, TKey>(this IComposableSortCollection<TSource> source, Func<TSource, TKey> keySelector, SortType sortType, IComparer<TKey> comparer)
     {
       Utilities.ValidateIsNotNull(source, nameof(source));
 
@@ -110,7 +110,7 @@ namespace LinqExtensions.Sort
     /// <param name="keySelector"></param>
     /// <param name="sortType"></param>
     /// <returns></returns>
-    public static IComposableSortEnumerable<TSource> ThenByDescending<TSource, TKey>(this IComposableSortEnumerable<TSource> source, Func<TSource, TKey> keySelector, SortType sortType)
+    public static IComposableSortCollection<TSource> ThenByDescending<TSource, TKey>(this IComposableSortCollection<TSource> source, Func<TSource, TKey> keySelector, SortType sortType)
     {
       Utilities.ValidateIsNotNull(source, nameof(source));
 
@@ -128,7 +128,7 @@ namespace LinqExtensions.Sort
     /// <param name="sortType"></param>
     /// <param name="comparer"></param>
     /// <returns></returns>
-    public static IComposableSortEnumerable<TSource> ThenByDescending<TSource, TKey>(this IComposableSortEnumerable<TSource> source, Func<TSource, TKey> keySelector, SortType sortType, IComparer<TKey> comparer)
+    public static IComposableSortCollection<TSource> ThenByDescending<TSource, TKey>(this IComposableSortCollection<TSource> source, Func<TSource, TKey> keySelector, SortType sortType, IComparer<TKey> comparer)
     {
       Utilities.ValidateIsNotNull(source, nameof(source));
 

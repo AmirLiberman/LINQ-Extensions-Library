@@ -7,7 +7,7 @@ namespace LinqExtensions.Sort
   /// </summary>
   /// <typeparam name="TKey"></typeparam>
   [DebuggerDisplayAttribute("{Index} - {Key}")]
-  public struct MapItem<TKey>
+  public struct MapItem<TKey> : System.IEquatable<MapItem<TKey>>
   {
     /// <summary>
     /// Documentation

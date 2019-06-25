@@ -2,7 +2,7 @@
 
 namespace LinqExtensions.Sort.Sorters
 {
-  internal class SelectSort<TKey> : Sort<TKey>, ISort<TKey>
+  internal class SelectSort<TKey> : SortBase<TKey>, ISort<TKey>
   {
     internal SelectSort(MapItem<TKey>[] map, IComparer<TKey> comparer, bool descending)
       : base(map, comparer, descending) { }

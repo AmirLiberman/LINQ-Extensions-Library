@@ -624,17 +624,17 @@ namespace LinqExtTests.Operators
 
     #region Helpers
 
-    private double DoubleWeightGen(int index)
+    private static double DoubleWeightGen(int index)
     {
       return index * index;
     }
 
-    private float FloatWeightGen(int index)
+    private static float FloatWeightGen(int index)
     {
       return index * index;
     }
 
-    private decimal DecimalWeightGen(int index)
+    private static decimal DecimalWeightGen(int index)
     {
       return index * index;
     }
