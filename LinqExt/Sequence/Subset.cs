@@ -568,7 +568,7 @@ namespace LinqExtensions.Sequence
     /// <exception cref="System.ArgumentNullException">source is null</exception>
     public static IEnumerable<TSource> TakeTopPercent<TSource>(this IEnumerable<TSource> source, double percent, Func<TSource, bool> predicate) // 1 == 100%
     {
-      Utilities.ValidateIsNotNull(source, nameof(source)); if (predicate == null)
+      Utilities.ValidateIsNotNull(source, nameof(source));
       Utilities.ValidateIsNotNull(predicate, nameof(predicate));
 
       TSource[] sourceArr = source.ToArray();

@@ -36,11 +36,11 @@ namespace LinqExtensions.Sort
       return descending ? -res : res;
     }
 
-    internal int CompareKeys(TKey key1, TKey key2)
-    {
-      int res = comparer.Compare(key1, key2);
-      return descending ? -res : res;
-    }
+    //internal int CompareKeys(TKey key1, TKey key2)
+    //{
+    //  int res = comparer.Compare(key1, key2);
+    //  return descending ? -res : res;
+    //}
 
     private void DoSort()
     {
