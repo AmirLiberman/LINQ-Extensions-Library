@@ -332,7 +332,7 @@ namespace LinqExtTests.Sequence
 
     #endregion
 
-    #region Concat Elements
+    #region Concatenate Elements
 
     [TestMethod()]
     public void AppendTest()

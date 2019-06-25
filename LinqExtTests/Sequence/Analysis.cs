@@ -3,8 +3,6 @@ using System.Linq;
 using LinqExtensions.Sequence;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-#pragma warning disable CA1825 // Avoid zero-length array allocations.
-
 namespace LinqExtTests.Sequence
 {
   [TestClass()]

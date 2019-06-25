@@ -75,7 +75,7 @@ namespace SortTester
       testArray1.CopyTo(testArray2, 0);
 
       IOrderedEnumerable<TestDataElement> standardSort = GetStandardSort(testArray1, testInfo);
-      IComposableSortEnumerable<TestDataElement> linqLibSort = GetLinqLibSort(testArray2, testInfo);
+      IComposableSortCollection<TestDataElement> linqLibSort = GetLinqLibSort(testArray2, testInfo);
 
       e.Cancel = DoTest(testInfo, standardSort, linqLibSort);
     }
@@ -204,7 +204,7 @@ namespace SortTester
       }
     }
 
-    private bool DoTest(TestInfo testInfo, IOrderedEnumerable<TestDataElement> standardSort, IComposableSortEnumerable<TestDataElement> linqLibSort)
+    private bool DoTest(TestInfo testInfo, IOrderedEnumerable<TestDataElement> standardSort, IComposableSortCollection<TestDataElement> linqLibSort)
     {
 
       Stopwatch sw = new Stopwatch();
@@ -240,7 +240,7 @@ namespace SortTester
       return backgroundWorker.CancellationPending;
     }
 
-    private static IComposableSortEnumerable<TestDataElement> GetLinqLibSort(TestDataElement[] testArray, TestInfo testInfo)
+    private static IComposableSortCollection<TestDataElement> GetLinqLibSort(TestDataElement[] testArray, TestInfo testInfo)
     {
       IEnumerable<TestDataElement> sorted = testArray.Select(X => X);
 
@@ -252,26 +252,26 @@ namespace SortTester
       if (testInfo.SortLevel >= 2)
       {
         if (testInfo.Sort2Order == SortOrder.Ascending)
-          sorted = ((IComposableSortEnumerable<TestDataElement>)sorted).ThenBy(X => X.Property2, testInfo.Sort2Type);
+          sorted = ((IComposableSortCollection<TestDataElement>)sorted).ThenBy(X => X.Property2, testInfo.Sort2Type);
         else
-          sorted = ((IComposableSortEnumerable<TestDataElement>)sorted).ThenByDescending(X => X.Property2, testInfo.Sort2Type);
+          sorted = ((IComposableSortCollection<TestDataElement>)sorted).ThenByDescending(X => X.Property2, testInfo.Sort2Type);
 
         if (testInfo.SortLevel >= 3)
         {
           if (testInfo.Sort3Order == SortOrder.Ascending)
-            sorted = ((IComposableSortEnumerable<TestDataElement>)sorted).ThenBy(X => X.Property3, testInfo.Sort3Type);
+            sorted = ((IComposableSortCollection<TestDataElement>)sorted).ThenBy(X => X.Property3, testInfo.Sort3Type);
           else
-            sorted = ((IComposableSortEnumerable<TestDataElement>)sorted).ThenByDescending(X => X.Property3, testInfo.Sort3Type);
+            sorted = ((IComposableSortCollection<TestDataElement>)sorted).ThenByDescending(X => X.Property3, testInfo.Sort3Type);
 
           if (testInfo.SortLevel >= 4)
             if (testInfo.Sort4Order == SortOrder.Ascending)
-              sorted = ((IComposableSortEnumerable<TestDataElement>)sorted).ThenBy(X => X.Property4, testInfo.Sort4Type);
+              sorted = ((IComposableSortCollection<TestDataElement>)sorted).ThenBy(X => X.Property4, testInfo.Sort4Type);
             else
-              sorted = ((IComposableSortEnumerable<TestDataElement>)sorted).ThenByDescending(X => X.Property4, testInfo.Sort4Type);
+              sorted = ((IComposableSortCollection<TestDataElement>)sorted).ThenByDescending(X => X.Property4, testInfo.Sort4Type);
         }
       }
 
-      return (IComposableSortEnumerable<TestDataElement>)sorted;
+      return (IComposableSortCollection<TestDataElement>)sorted;
 
     }
 

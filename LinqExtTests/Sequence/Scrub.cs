@@ -141,7 +141,7 @@ namespace LinqExtTests.Sequence
 
     #endregion
 
-    #region Remove Nans and Nulls
+    #region Remove NaNs and Nulls
 
     [TestMethod()]
     public void RemoveNansDoubleTest1()

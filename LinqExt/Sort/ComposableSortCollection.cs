@@ -9,7 +9,7 @@ namespace LinqExtensions.Sort
   /// Documentation
   /// </summary>
   /// <typeparam name="TElement"></typeparam>
-  public abstract class ComposableSortEnumerable<TElement> : IComposableSortEnumerable<TElement>
+  public abstract class ComposableSortCollection<TElement> : IComposableSortCollection<TElement>
   {
     internal IEnumerable<TElement> Source;
     internal ComposableSorter<TElement> ComposableSorter;
@@ -18,12 +18,12 @@ namespace LinqExtensions.Sort
     /// Documentation
     /// </summary>
     [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
-    protected ComposableSortEnumerable()
+    protected ComposableSortCollection()
     { }
 
     public void AppendSorter<TKey>(Func<TElement, TKey> keySelector, SortType sortType, IComparer<TKey> comparer, bool descending)
     {
-      ComposableSortEnumerable<TElement, TKey> composableSortEnumerable = new ComposableSortEnumerable<TElement, TKey>(this, keySelector, sortType, comparer, descending);
+      ComposableSortCollection<TElement, TKey> composableSortEnumerable = new ComposableSortCollection<TElement, TKey>(this, keySelector, sortType, comparer, descending);
       SetNext(ComposableSorter, composableSortEnumerable.ComposableSorter);
     }
 
@@ -47,7 +47,7 @@ namespace LinqExtensions.Sort
     }
   }
 
-  internal class ComposableSortEnumerable<TElement, TKey> : ComposableSortEnumerable<TElement>
+  internal class ComposableSortCollection<TElement, TKey> : ComposableSortCollection<TElement>
   {
     internal Func<TElement, TKey> KeySelector;
     internal IComparer<TKey> Comparer;
@@ -55,7 +55,7 @@ namespace LinqExtensions.Sort
     internal SortType SortType;
 
     [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
-    internal ComposableSortEnumerable(IEnumerable<TElement> source, Func<TElement, TKey> keySelector, SortType sortType, IComparer<TKey> comparer, bool descending)
+    internal ComposableSortCollection(IEnumerable<TElement> source, Func<TElement, TKey> keySelector, SortType sortType, IComparer<TKey> comparer, bool descending)
     {
       Utilities.ValidateIsNotNull(source, nameof(source));
       Utilities.ValidateIsNotNull(keySelector, nameof(keySelector));

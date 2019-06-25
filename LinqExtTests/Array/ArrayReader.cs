@@ -12,11 +12,10 @@ namespace LinqExtTests.Array
     const string NAME_PREFIX = "A:";
     const string DIM_PREFIX = "D:";
 
-    private static Dictionary<string, System.Array> data;
+    private static Dictionary<string, System.Array> data= new Dictionary<string, System.Array>();
 
     static ArrayReader()
-    {
-      data = new Dictionary<string, System.Array>();
+    {      
       StringBuilder arrBldr = new StringBuilder();
       bool soa = false;
       foreach (string arrLine in LinqExtTests.Properties.Resources.ExpectedArrayData.Split(new char[] { '\r', '\n' }))
@@ -43,7 +42,7 @@ namespace LinqExtTests.Array
       int dimPos = arrayData.IndexOf(DIM_PREFIX);
       int startPos = arrayData.IndexOf(START_OF_ARRAY);
       int arrLen = arrayData.IndexOf(END_OF_ARRAY) - startPos;
-      int[] dims = new int[] { };
+      int[] dims = System.Array.Empty<int>();
 
       int endOfName;
       if (dimPos == -1) //No dim token

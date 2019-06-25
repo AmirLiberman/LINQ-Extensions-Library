@@ -12,7 +12,9 @@ namespace LinqExtensions.Historian
     private const int CONFIDENCE_BIT_MASK = 0x000F_0000;
 
     #region Declarations
+
 #pragma warning disable IDE0032 // Use auto property
+
     private readonly double _originalValue;               //        8            
 
     private readonly DataItemStatus _status;              //        4 
@@ -20,6 +22,7 @@ namespace LinqExtensions.Historian
     private long _utcTimestampTicks;                      //        8
 
 #pragma warning restore IDE0032 // Use auto property
+
     #endregion
 
     #region Constructors
@@ -83,14 +86,14 @@ namespace LinqExtensions.Historian
 
     public DateTimeOffset Timestamp
     {
-      get { return new DateTimeOffset(_utcTimestampTicks, TimeSpan.Zero); }      
+      get { return new DateTimeOffset(_utcTimestampTicks, TimeSpan.Zero); }
     }
 
     public long UtcTicks => _utcTimestampTicks;
 
     public DataItemStatus Status => _status;
 
-        public int Code
+    public int Code
     {
       get => _bitData & CODE_BIT_MASK;
       private set => _bitData = (_bitData & ~CODE_BIT_MASK) | value;
@@ -103,7 +106,7 @@ namespace LinqExtensions.Historian
     }
 
 
-    public bool IsGood => !double.IsNaN(_originalValue);  
+    public bool IsGood => !double.IsNaN(_originalValue);
 
     public bool IsEmpty => (_status & DataItemStatus.Empty) == DataItemStatus.Empty;
 
@@ -286,7 +289,7 @@ namespace LinqExtensions.Historian
 
     #region Item interpolation methods (static)
 
-    public static DataItem Interpolate(DateTimeOffset timestamp, DataItem item1, DataItem item2, bool stepValues)
+    public static DataItem Interpolate(DateTimeOffset timestamp, DataItem item1, DataItem item2, bool stepInterpolation)
     {
 
       if (item2.UtcTicks < item1.UtcTicks)
@@ -311,15 +314,19 @@ namespace LinqExtensions.Historian
       //timestamp is after item2 timestamp, return an  empty item with the right status.
       if (item2.UtcTicks < timestamp.UtcTicks)
         return DataItem.Empty(timestamp, DataItemStatus.TimeStampAfterRangeEnd);
-      
+
+
+      if (stepInterpolation)
+        return new DataItem(item1.OriginalValue, timestamp, item1.Status, item1.Code, item1.Confidence);
+
       //If at this point, timestamp is in between the items timestamps
-      if (!item1.IsGood || stepValues)
+      if (!item1.IsGood || !item2.IsGood)
         return Combine(item1.OriginalValue, timestamp, item1, item2);
 
-      if (!item2.IsGood)
-        return Combine(item2.OriginalValue, timestamp, item2, item2);
+      //if (!item2.IsGood)
+      //  return Combine(item1.OriginalValue, timestamp, item2, item2);
 
-      //Timestamp is in between the items timestamps, both items are good and linear interpolation is needed (stepValues is false)
+      //Timestamp is in between the items timestamps, both items are good and linear interpolation is needed (stepInterpolation is false)
       //Preform the interpolation:
       double interpolationFactor = (item2.Value - item1.Value) / item2.Timestamp.Subtract(item1.Timestamp).TotalMinutes;
       double interpolatedValue = item1.Value + interpolationFactor * timestamp.Subtract(item1.Timestamp).TotalMinutes;

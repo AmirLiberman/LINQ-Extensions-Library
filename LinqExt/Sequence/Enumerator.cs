@@ -1,4 +1,6 @@
-﻿using System;
+﻿#pragma warning disable CA1305 // Specify IFormatProvider
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -796,6 +798,8 @@ namespace LinqExtensions.Sequence
     /// <returns></returns>
     public static IEnumerable<IEnumerable<T>> Interleave<T>(this IEnumerable<IEnumerable<T>> source)
     {
+      Utilities.ValidateIsNotNull(source, nameof(source));
+
       List<IEnumerator<T>> enumerators = new List<IEnumerator<T>>();
       foreach (IEnumerable<T> subSequence in source)
         enumerators.Add(subSequence.GetEnumerator());
@@ -819,6 +823,8 @@ namespace LinqExtensions.Sequence
     /// <returns></returns>
     public static IEnumerable<IEnumerable<T>> Interleave<T>(this IEnumerable<IEnumerable<T>> source, T defaultValue)
     {
+      Utilities.ValidateIsNotNull(source, nameof(source));
+
       List<IEnumerator<T>> enumerators = new List<IEnumerator<T>>();
       foreach (IEnumerable<T> subSequence in source)
         enumerators.Add(subSequence.GetEnumerator());

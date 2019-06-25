@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="LinqExtTests.Historian.DataItemTests.EqualTest" /><Add Test="LinqExtTests.Historian.DataItemTests.EmptyTest" /><Add Test="LinqExtTests.Historian.DataItemTests.InterpolateTest" /></Playlist>

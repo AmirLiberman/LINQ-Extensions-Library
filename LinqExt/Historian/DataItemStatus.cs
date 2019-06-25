@@ -1,8 +1,11 @@
-﻿using System;
+﻿#pragma warning disable CA1714 // Flags enums should have plural names
+
+using System;
 
 namespace LinqExtensions.Historian
 {
   [Flags]
+
   public enum DataItemStatus : int
   {
     //Acceptable Codes
