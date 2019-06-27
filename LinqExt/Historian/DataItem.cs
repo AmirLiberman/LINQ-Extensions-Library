@@ -53,19 +53,17 @@ namespace LinqExtensions.Historian
     : this(value, timestamp.UtcTicks, status, code, confidence) { }
 
     public DataItem(double value, long timestampTicks, DataItemStatus status, int code, Quality confidence)
-    {
-      _originalValue = value;
-      _utcTimestampTicks = timestampTicks;
-      _status = status;
-      _bitData = code | (((int)confidence & 0xF) << 16);
-    }
+    : this(value, timestampTicks, code | (((int)confidence & 0xF) << 16), status) { }
 
     private DataItem(double value, long timestampTicks, int bitData, DataItemStatus status)
     {
       _originalValue = value;
       _utcTimestampTicks = timestampTicks;
       _bitData = bitData;
-      _status = status;
+      if (double.IsNaN(value))
+        _status = status | DataItemStatus.Empty;
+      else
+        _status = status;
     }
 
     #endregion
@@ -96,13 +94,13 @@ namespace LinqExtensions.Historian
     public int Code
     {
       get => _bitData & CODE_BIT_MASK;
-      private set => _bitData = (_bitData & ~CODE_BIT_MASK) | value;
+      //private set => _bitData = (_bitData & ~CODE_BIT_MASK) | value;
     }
 
     public Quality Confidence
     {
       get => (Quality)((_bitData & CONFIDENCE_BIT_MASK) >> 16);
-      set => _bitData = (_bitData & ~CONFIDENCE_BIT_MASK) | (((int)value & 0xF) << 16);
+      //set => _bitData = (_bitData & ~CONFIDENCE_BIT_MASK) | (((int)value & 0xF) << 16);
     }
 
 
@@ -201,48 +199,39 @@ namespace LinqExtensions.Historian
 
     public static DataItem operator +(DataItem left, DataItem right)
     {
-      if (left == null)
-        throw Exceptions.ArgumentNull(nameof(left));
-      if (right == null)
-        throw Exceptions.ArgumentNull(nameof(right));
+      Utilities.ValidateIsNotNull(left, nameof(left));
+      Utilities.ValidateIsNotNull(right, nameof(right));
 
       return Combine(left._originalValue + right._originalValue, left.Timestamp, left, right);
     }
 
     public static DataItem operator -(DataItem left, DataItem right)
     {
-      if (left == null)
-        throw Exceptions.ArgumentNull(nameof(left));
-      if (right == null)
-        throw Exceptions.ArgumentNull(nameof(right));
+      Utilities.ValidateIsNotNull(left, nameof(left));
+      Utilities.ValidateIsNotNull(right, nameof(right));
 
       return Combine(left._originalValue - right._originalValue, left.Timestamp, left, right);
     }
 
     public static DataItem operator *(DataItem left, DataItem right)
     {
-      if (left == null)
-        throw Exceptions.ArgumentNull(nameof(left));
-      if (right == null)
-        throw Exceptions.ArgumentNull(nameof(right));
+      Utilities.ValidateIsNotNull(left, nameof(left));
+      Utilities.ValidateIsNotNull(right, nameof(right));
 
       return Combine(left._originalValue * right._originalValue, left.Timestamp, left, right);
     }
 
     public static DataItem operator /(DataItem left, DataItem right)
     {
-      if (left == null)
-        throw Exceptions.ArgumentNull(nameof(left));
-      if (right == null)
-        throw Exceptions.ArgumentNull(nameof(right));
+      Utilities.ValidateIsNotNull(left, nameof(left));
+      Utilities.ValidateIsNotNull(right, nameof(right));
 
       return Combine(left._originalValue / right._originalValue, left.Timestamp, left, right);
     }
 
     public static DataItem operator -(DataItem item)
     {
-      if (item == null)
-        throw Exceptions.ArgumentNull(nameof(item));
+      Utilities.ValidateIsNotNull(item, nameof(item));
 
       return new DataItem(-item._originalValue, item.Timestamp.UtcTicks, item._bitData, item._status);
     }
@@ -250,33 +239,25 @@ namespace LinqExtensions.Historian
 
     public static DataItem operator +(DataItem item, double value)
     {
-      if (item == null)
-        throw Exceptions.ArgumentNull(nameof(item));
-
+      Utilities.ValidateIsNotNull(item, nameof(item));
       return new DataItem(item._originalValue + value, item.Timestamp.UtcTicks, item._bitData, item._status);
     }
 
     public static DataItem operator -(DataItem item, double value)
     {
-      if (item == null)
-        throw Exceptions.ArgumentNull(nameof(item));
-
+      Utilities.ValidateIsNotNull(item, nameof(item));
       return new DataItem(item._originalValue - value, item.Timestamp.UtcTicks, item._bitData, item._status);
     }
 
     public static DataItem operator *(DataItem item, double value)
     {
-      if (item == null)
-        throw Exceptions.ArgumentNull(nameof(item));
-
+      Utilities.ValidateIsNotNull(item, nameof(item));
       return new DataItem(item._originalValue * value, item.Timestamp.UtcTicks, item._bitData, item._status);
     }
 
     public static DataItem operator /(DataItem item, double value)
     {
-      if (item == null)
-        throw Exceptions.ArgumentNull(nameof(item));
-
+      Utilities.ValidateIsNotNull(item, nameof(item));
       return new DataItem(item._originalValue / value, item.Timestamp.UtcTicks, item._bitData, item._status);
     }
 

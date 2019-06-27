@@ -1,1 +1,12 @@
-<Playlist Version="1.0"><Add Test="LinqExtTests.Historian.DataItemTests.EqualTest" /><Add Test="LinqExtTests.Historian.DataItemTests.EmptyTest" /><Add Test="LinqExtTests.Historian.DataItemTests.InterpolateTest" /></Playlist>
+<Playlist Version="1.0">
+  <Add Test="LinqExtTests.Historian.DataItemTests.EqualTest" />
+  <Add Test="LinqExtTests.Historian.DataItemTests.EmptyTest" />
+  <Add Test="LinqExtTests.Historian.DataItemTests.InterpolateTest" />
+  <Add Test="LinqExtTests.Historian.DataItemTests.MathTest" />
+  <Add Test="LinqExtTests.Historian.DataItemTests.DateItemStringOutputTest" />  
+  <Add Test="LinqExtTests.Historian.DataItemsProcessorTest.ProcessExceptions1" />
+  <Add Test="LinqExtTests.Historian.DataItemsProcessorTest.ProcessExceptions2" />
+  <Add Test="LinqExtTests.Historian.DataItemsProcessorTest.ProcessCompression1" />
+  <Add Test="LinqExtTests.Historian.DataItemsProcessorTest.ProcessCompression2" />
+  <Add Test="LinqExtTests.Historian.DataItemsProcessorTest.InterpolateTest" />  
+</Playlist>

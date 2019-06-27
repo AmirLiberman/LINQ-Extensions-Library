@@ -1,6 +1,6 @@
-﻿using System;
+﻿using LinqExtensions.Properties;
+using System;
 using System.Globalization;
-using LinqExtensions.Properties;
 
 namespace LinqExtensions
 {
@@ -36,10 +36,10 @@ namespace LinqExtensions
       return new ArgumentException(string.Format(CultureInfo.CurrentCulture, Resources.excption3DFlip, axis), nameof(axis));
     }
 
-    internal static ArgumentException Invalid4DFlip(object axis)
-    {
-      return new ArgumentException(string.Format(CultureInfo.CurrentCulture, Resources.excption4DFlip, axis), nameof(axis));
-    }
+    //internal static ArgumentException Invalid4DFlip(object axis)
+    //{
+    //  return new ArgumentException(string.Format(CultureInfo.CurrentCulture, Resources.excption4DFlip, axis), nameof(axis));
+    //}
 
     //internal static ArgumentException Rotate3D(object axis)
     //{
@@ -108,7 +108,7 @@ namespace LinqExtensions
 
     internal static ArgumentException ParamBelowMinValue(string parameterName, double min)
     {
-      return new ArgumentException(string.Format(CultureInfo.CurrentCulture,Resources.excptionParamMinRange, parameterName, min));
+      return new ArgumentException(string.Format(CultureInfo.CurrentCulture, Resources.excptionParamMinRange, parameterName, min));
     }
 
     internal static ArgumentException ParamAboveMaxValue(string parameterName, double max)

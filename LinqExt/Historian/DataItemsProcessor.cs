@@ -93,7 +93,7 @@ namespace LinqExtensions.Historian
               if (archive.IsGood)
               {
                 double currentSlope = (currentSnapshot.OriginalValue - archive.OriginalValue) / dur;
-                if (currentSlope < slope1 && currentSlope > slope2)
+                if (currentSlope <= slope1 && currentSlope >= slope2)
                 {
                   double tempSlope1 = (currentSnapshot.OriginalValue - (archive.OriginalValue - compressionMax)) / dur;
                   double tempSlope2 = (currentSnapshot.OriginalValue - (archive.OriginalValue + compressionMax)) / dur;
